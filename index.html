@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Adeniji Aliu Adeyemi">
+  <meta name="description" content="A computer Based Test Application Created for BFIA_TAHFEEZ">
+  
+  <!--Css-->
+  <link type="text/css" rel="stylesheet" href="style.css" />
+
+    <!-- Include jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <title>CBT</title>
+</head>
+<body>
+  <!--Login Page-->
+  <div class="loginPage" id="loginPage">
+    <form>
+      <small class="warning" id="warning" style="color:red";></small><br>
+      <input type="text" name="userName" id="userName">
+      <input type="submit" value="Start Exam" onclick="startTimer();" id="loginBtn">
+    </form>
+  </div><br>
+  <!--End Login Page-->
+
+
+  <!--Header container-->
+  <div class="headerContainer" id="headerContainer">
+      <!--Caclulator-->
+    <button id="calc_btn" class="calc_btn">Calculator</button>
+
+    <div class="modal" id="myModal">
+      <!-- start of calculator -->
+      <span class="close" id="close">&times;</span>
+      <form class="calculator">
+          <input type="text" name="answer">  <!-- text input -->
+          <br>
+          <!-- row 1 -->
+          <input type="button" id="button1" value="1" onclick="answer.value += '1'">
+          <input type="button" id="button1" value="2" onclick="answer.value += '2'">
+          <input type="button" id="button1" value="3" onclick="answer.value += '3'">
+          <input type="button" id="button1" value="+" onclick="answer.value += '+'">
+          <br>
+          <input type="button" id="button1" value="4" onclick="answer.value += '4'">
+          <input type="button" id="button1" value="5" onclick="answer.value += '5'">
+          <input type="button" id="button1" value="6" onclick="answer.value += '6'">
+          <input type="button" id="button1" value="-" onclick="answer.value += '-'">
+          <br>
+          <input type="button" id="button1" value="7" onclick="answer.value += '7'">
+          <input type="button" id="button1" value="8" onclick="answer.value += '8'">
+          <input type="button" id="button1" value="9" onclick="answer.value += '9'">
+          <input type="button" id="button1" value="*" onclick="answer.value += '*'">
+          <br>
+          <input type="button" id="button1" value="C" onclick="answer.value = ''">
+          <input type="button" id="button1" value=0 onclick="answer.value += '0'">
+          <input type="button" id="button1" value="=" onclick="answer.value= eval(answer.value); ">
+          <input type="button" id="button1" value="/" onclick="answer.value += '/'">
+          
+          <br>
+          <input type="button" id="button1" value="." onclick="answer.value += '.'">
+          
+        </form>
+    <!-- end of calculator -->
+    </div>
+    <!--Endof Caclulator-->
+
+    <!--Submit-->
+    <button class="submitExam" id="submitExam">Submit</button>
+    <!--End of Submit-->
+
+    <!--Countdown Timer-->
+    <h1 class="timeLeft" id="timeLeft">00:00:00</h1>
+    <!--End Countdown Timer-->
+
+    <p class="warningMsg" id="warningMsg"></p>
+    
+    <!--Welcome-->
+    <h1 class="welcome" id="welcome">Welcome to this Exam, Name</span></h1>
+    <!--End of Welcome-->
+  </div>
+  <!--End Header container-->
+
+
+<!--Quiz Container-->
+<div class="quizContainer" id="quizContainer">
+  <form id="quizForm" name="quizForm">
+    
+  </form>
+  <button id="prevButton">Prev</button>
+  <button id="nextButton">Next</button>
+</div>
+<!--End quiz container-->
+
+<!--Show result-->
+<section id="resultContainer">
+  <h4 class="slip"> BRILLIANT FOOTSTEPS INT'L ACADEMY</h4>
+
+   <div id="line" >
+     <div id="student">
+     <h5 id="cand" style="text-decoration: underline;"> Candidate results</h5>
+       <h3 id="correctAns" style="font-weight: bold; font-size: 40px;  color: #fff;"></h3>
+     
+   </div>
+      
+   </div>
+   <div id="details" style=" text-decoration:underline;">
+     <h5> Examination Details</h5>
+   </div>
+   
+   <div id="user">
+      
+   </div>
+   
+    <div id="print-content" style="float: left; margin-top: 300px;">
+      
+       <button id="btn" style="font-size: 15px;  font-weight: bold;"  onclick="window.print()">Print result</button>
+       
+      
+    </div>
+
+<div id="resultCircle" style="color: white;">
+Calculating Your Result...
+
+</div> 
+<!-- Result Circle End -->
+<br>
+<!-- <h1>Congrats! Your Are Passed</h1> -->
+<br>
+<br>
+ <br>
+
+   <div id="line" ></div>
+
+
+<button class="btn btn-info" onclick="location.reload();">Retake Quiz</button>
+</section>
+<!--End show result-->
+
+ 
+ <script type="text/javascript" src="script.js" />
+</body>
+</html>

@@ -5,7 +5,11 @@ var calc_btn = document.getElementById("calc_btn");
 var resultContainer = document.getElementById("resultContainer");
 resultContainer.style.display = "none";
 
+var headerContainer = document.getElementById("headerContainer");
+headerContainer.style.display = "none";
+
 var nextButton = document.querySelector("#nextButton");
+nextButton.style.display = "none";
 nextButton.addEventListener("click", nextQuestion);
 
 var prevButton = document.querySelector("#prevButton");
@@ -96,12 +100,6 @@ function logIn(user) {
 
   var timeLeft = document.getElementById("timeLeft");
 
-
-
-
-
-
-
   //results.innerHTML = "";
   player = new Player(user);
   playerArray.push(player);
@@ -121,7 +119,7 @@ function logIn(user) {
       var storedAnswers = actualPlayer.storedAnswers;
       index = actualPlayer.answerAt;
       var welcome = document.getElementById("welcome")
-      welcome.innerHTML = "Welcome to this Exam, " + actualPlayer.userName + "!";
+      welcome.innerHTML = "Welcome to this Digital Evaluation Platform, " + actualPlayer.userName + "!";
 
       userName = "";
       //code to start the exam imediately
@@ -318,7 +316,7 @@ var secs = parseInt(timeline % 60);
 var mins = parseInt(timeline / 60);
 
 function countDown() {
-  document.querySelector("#timeLeft").innerHTML = `Time Left: ${mins}:${secs}`;
+  document.querySelector("#timeLeft").innerHTML = `Time Left: ${mins} Mins:${secs} Secs`;
   if (timeline <= 30) {
     document.querySelector("#timeLeft").style.color = "red";
     document.querySelector("#warningMsg").style.color = "red";
@@ -340,59 +338,24 @@ function countDown() {
     }
 
     percentage = (totalScore / allQuestions.length) * 100;
+    
     //display score percentage area
-    var resultCircle = document.getElementById('resultCircle');
-    var correctAns = document.getElementById('correctAns');
-
-    var RColor = "";
-
-    if (percentage == 100) {
-      RColor = 'teal'
-
-      correctAns.innerHTML = totalScore;
-    } else if (percentage >= 80) {
-      RColor = 'green'
-
-      correctAns.innerHTML = totalScore;
-    }
-    else if (percentage >= 65) {
-      RColor = 'blue'
-
-      correctAns.innerHTML = totalScore;
-    } else if (percentage >= 50) {
-      RColor = 'orange'
-
-      correctAns.innerHTML = totalScore;
-    } else {
-      RColor = 'red'
-
-      correctAns.innerHTML = totalScore;
-    }
-
-    //svg animation circle
-    var path =
-      '<svg viewbox="0 0 36 36" class="circular-chart ' + RColor + '"> \
-    <path class="circle-bg" \
-    d="M18 2.0845 \
-    a 15.9155 15.9155 0 0 1 0 31.831 \
-    a 15.9155 15.9155 0 0 1 0 -31.831" \
-    /> \
-    <path class="circle" \
-    stroke-dasharray="'+ percentage + ', 100" \
-    d="M18 2.0845 \
-    a 15.9155 15.9155 0 0 1 0 31.831 \
-    a 15.9155 15.9155 0 0 1 0 -31.831" \
-    /> \
-    <text x="19" y="21" id="percentage">' + percentage + '%</text> \
-    </svg>';
-    resultCircle.innerHTML = path;
+    
     var created = new Date();
 
-    document.getElementById('user').innerHTML = "Username: " + actualPlayer.userName + "<br>" + "<br>" + "Subject: COMPUTER STUDIES" + "<br>" + "<br>" + "Exam Date: " + created.toLocaleString("en-US");
+    document.querySelector("#Score").innerHTML = `${totalScore} / ${allQuestions.length}`;
+
+    document.querySelector('#user').innerHTML = "<b>Username: </b>" 
+    + actualPlayer.userName + "<br>" + "<br>" + "<b>Subject: </b>COMPUTER STUDIES" 
+    + "<br>" + "<br>" + "<b>Exam Date: </b>" + created.toLocaleString("en-US") + "<br>"+ "<br>" 
+    + "<b>Total Score: </b>" + totalScore + " <b>out of</b> "+allQuestions.length+" questions" + "<br>"+"<br>"
+    +"<b>Percentage: </b>"+percentage.toFixed(2)+" %";
 
     //results.innerHTML = output;
     actualPlayer.score = totalScore;
     actualPlayer.storedScores.push(totalScore);
+    
+    
 
     setTimeout(1);
   } else {
@@ -407,4 +370,54 @@ function countDown() {
 function startTimer() {
   setTimeout("countDown()", 1000);
 }
+
+document.getElementById("submitExam").addEventListener("click", ()=>{
+  Swal.fire({
+    title: 'Are you sure you want to submit this Exam?',
+    text: 'Once submitted, you cannot undo this action!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, submit it!',
+    cancelButtonText: 'No, cancel!',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // If the user confirms, submit the form
+      //this.submit();
+      console.log("SUBMIT")
+      document.querySelector("#quizContainer").style.display = "none";
+      document.querySelector("#headerContainer").style.display = "none";
+      document.querySelector("#welcome").style.display = "none";
+      document.querySelector("#resultContainer").style.display = "block";
+
+      var totalScore = 0;
+      var storedAnswers = actualPlayer.storedAnswers;
+
+      for (i = 0; i < storedAnswers.length; i++) {
+        var score = parseInt(storedAnswers[i].value);
+        totalScore += score;
+      }
+
+      percentage = (totalScore / allQuestions.length) * 100;
+      
+      //display score percentage area
+      
+      var created = new Date();
+
+      document.querySelector("#Score").innerHTML = `${totalScore} / ${allQuestions.length}`;
+
+      document.querySelector('#user').innerHTML = "<b>Username: </b>" 
+      + actualPlayer.userName + "<br>" + "<br>" + "<b>Subject: </b>COMPUTER STUDIES" 
+      + "<br>" + "<br>" + "<b>Exam Date: </b>" + created.toLocaleString("en-US") + "<br>"+ "<br>" 
+      + "<b>Total Score: </b>" + totalScore + " <b>out of</b> "+allQuestions.length+" questions" + "<br>"+"<br>"
+      +"<b>Percentage: </b>"+percentage.toFixed(2)+" %";
+
+      //results.innerHTML = output;
+      actualPlayer.score = totalScore;
+      actualPlayer.storedScores.push(totalScore);
+      
+      setTimeout(1);
+};
+  });
+});
 

@@ -4,25 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Adeniji Aliu Adeyemi">
-  <meta name="description" content="A computer Based Test Application Created for BFIA_TAHFEEZ">
+  <meta name="description" content="A Digital Evaluation Plaftform for varous sector">
   
-  <!--Css-->
+  <!--Css for login page-->
   <link type="text/css" rel="stylesheet" href="style.css" />
 
+  <!--Css for Quiz page-->
+  <link type="text/css" rel="stylesheet" href="style2.css" />
+
+  <!--Css for Calculator-->
+  <link type="text/css" rel="stylesheet" href="style3.css" />
+
+    <!--Css for Result page-->
+    <link type="text/css" rel="stylesheet" href="style4.css" />
+  
     <!-- Include jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Include Sweetalert CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   
-  <title>CBT</title>
+  <title>Digital Evaluation Platform</title>
 </head>
 <body>
-  <!--Login Page-->
+   <!--Login Page-->
   <div class="loginPage" id="loginPage">
+    <h1 style="font-family:Arial, Helvetica, sans-serif; font-size: 2.6em; letter-spacing: .05em; color:blue;">Digital Evaluation Platform</h1><br>
+  <i><strong>Bridging the Gap from Paper-Based to Computer-Based Testing</strong></i><br><br>
+ 
+    <h1 class="nameRequest">Enter your name, please</h1>
     <form>
       <small class="warning" id="warning" style="color:red";></small><br>
       <input type="text" name="userName" id="userName">
       <input type="submit" value="Start Exam" onclick="startTimer();" id="loginBtn">
     </form>
-  </div><br>
+  </div>
   <!--End Login Page-->
 
 
@@ -30,7 +47,9 @@
   <div class="headerContainer" id="headerContainer">
       <!--Caclulator-->
     <button id="calc_btn" class="calc_btn">Calculator</button>
-
+    <!--Welcome-->
+    <h1 class="welcome" id="welcome"></span></h1>
+    <!--End of Welcome-->
     <div class="modal" id="myModal">
       <!-- start of calculator -->
       <span class="close" id="close">&times;</span>
@@ -76,9 +95,7 @@
 
     <p class="warningMsg" id="warningMsg"></p>
     
-    <!--Welcome-->
-    <h1 class="welcome" id="welcome">Welcome to this Exam, Name</span></h1>
-    <!--End of Welcome-->
+    
   </div>
   <!--End Header container-->
 
@@ -94,49 +111,38 @@
 <!--End quiz container-->
 
 <!--Show result-->
-<section id="resultContainer">
-  <h4 class="slip"> BRILLIANT FOOTSTEPS INT'L ACADEMY</h4>
-
-   <div id="line" >
-     <div id="student">
-     <h5 id="cand" style="text-decoration: underline;"> Candidate results</h5>
-       <h3 id="correctAns" style="font-weight: bold; font-size: 40px;  color: #fff;"></h3>
+<section id="resultContainer" class="resultContainer">
+  <h4 id="slip" class="slip"> DIGITAL EVALUATION PLATFORM </h4>
+  <hr>
+  <div id="student" class="student">
+     <h3 id="cand" class="cand" style="text-decoration: underline; text-align: center; color:green;"> Candidate results</h3>
+     <h2 id="Score" class="Score" style="font-weight: bold; font-size: 40px;  color: #0400ff;"></h2>
      
    </div>
       
    </div>
-   <div id="details" style=" text-decoration:underline;">
-     <h5> Examination Details</h5>
+   <div id="details" class="details" text-decoration:underline;">
+     <h3> Examination Details</h3>
    </div>
    
-   <div id="user">
+   <div id="user" class="user">
       
    </div>
-   
-    <div id="print-content" style="float: left; margin-top: 300px;">
-      
-       <button id="btn" style="font-size: 15px;  font-weight: bold;"  onclick="window.print()">Print result</button>
-       
-      
-    </div>
+ <br> 
+   <div id="print-content" class="print-content" style="float: left; margin-top: 10px;">
+    <button id="btn" style="font-size: 15px;  font-weight: bold;"  onclick="window.print()">Print result</button>     
+ </div>
 
-<div id="resultCircle" style="color: white;">
-Calculating Your Result...
-
-</div> 
-<!-- Result Circle End -->
-<br>
-<!-- <h1>Congrats! Your Are Passed</h1> -->
-<br>
-<br>
- <br>
-
-   <div id="line" ></div>
-
-
-<button class="btn btn-info" onclick="location.reload();">Retake Quiz</button>
+ <div id="print-content" class="print-content" style="float: right; margin-top: 10px;">
+<button style="font-size: 15px;  font-weight: bold; background-color: #4caf50;" onclick="location.reload();">Retake Quiz</button>
+</div>
 </section>
 <!--End show result-->
+
+<footer class="footer">
+  <div>&copy; Copyright 2024</div>
+  <div>Powered by: Adeniji Aliu Adeyemi</div>
+</footer>
 
  
  <script type="text/javascript" src="script.js" />

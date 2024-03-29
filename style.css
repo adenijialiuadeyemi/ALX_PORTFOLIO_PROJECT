@@ -1,3 +1,122 @@
-body {
-  background-color: purple;
+/* Center the login page */
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1; /* Change the background color as needed */
 }
+.nameRequest {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333; /* Change the color as needed */
+}
+/* Style the login form */
+.loginPage {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Input field styles */
+input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Submit button styles */
+input[type="submit"] {
+  background-color: #4CAF50; /* Change the button color */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049; /* Change the hover color */
+}
+
+/* Warning message styles */
+.warning {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Animation for fade in effect */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Media query for mobile responsiveness */
+@media screen and (max-width: 600px) {
+  .loginPage {
+    max-width: 90%;
+  }
+}
+/* Styles for the footer */
+.footer {
+  background-color: #333; /* Dark background color */
+  color: #fff; /* White text color */
+  padding: 5px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures the footer is above other content */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Reasonable font stack */
+}
+
+/* Styles for the copyright text */
+.footer div:first-child {
+  font-size: 14px;
+  margin-bottom: 5px;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Styles for the powered by text */
+.footer div:last-child {
+  font-size: 16px;
+  font-weight: bold;
+  animation: slideInRight 1s ease-out;
+}
+
+/* Keyframes for fadeInUp animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyframes for slideInRight animation */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+

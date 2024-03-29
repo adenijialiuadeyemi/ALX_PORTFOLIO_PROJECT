@@ -1,0 +1,61 @@
+/* Header container styles */
+.headerContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .calc_btn {
+    background-color: #4CAF50;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .calc_btn:hover {
+    background-color: #45a049;
+  }
+  
+  .welcome {
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .submitExam {
+    background-color: #f44336;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitExam:hover {
+    background-color: #d32f2f;
+  }
+  
+  .timeLeft {
+    color: #fdd835;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Positioning Time Left and Submit at the top-right */
+  .timeLeft,
+  .submitExam {
+    margin-left: auto; /* Pushes these elements to the right */
+  }
+  

@@ -10,7 +10,7 @@ body, html {
 .nameRequest {
   font-size: 24px;
   margin-bottom: 20px;
-  color: #333; /* Change the color as needed */
+  color: #0056b3; /* Change the color as needed */
 }
 /* Style the login form */
 .loginPage {
@@ -68,7 +68,7 @@ input[type="submit"]:hover {
 }
 /* Styles for the footer */
 .footer {
-  background-color: #333; /* Dark background color */
+  background-color: #0056b3; /* Dark background color */
   color: #fff; /* White text color */
   padding: 5px;
   text-align: center;
@@ -80,6 +80,27 @@ input[type="submit"]:hover {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Reasonable font stack */
 }
 
+
+/*Next and Previous Button */
+.buttons{
+  display:flex;
+  flex-direction: row;
+  gap:10px;
+  justify-content: center;
+  align-items: center;
+  margin-top:15px;
+}
+
+.buttons button{
+  min-width:100px;
+  min-height:40px;
+  background-color: #0056b3;
+  color:white;
+  font-size:1.2rem;
+  border-radius: 5px;
+  border:none;
+  cursor:pointer;
+}
 /* Styles for the copyright text */
 .footer div:first-child {
   font-size: 14px;

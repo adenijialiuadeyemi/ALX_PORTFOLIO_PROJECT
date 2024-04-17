@@ -19,20 +19,56 @@ prevButton.addEventListener("click", prevQuestion)
 //Questions
 var allQuestions = [
   {
-    question: "Who is the father of computer?",
+    question: "1. Who is the father of computer?",
     choices: ["Charles Babbage", "Tony Elumelu", "Michael Faraday", "Ada Lovelace"],
     answer: 0
   },
   {
-    question: "What is the longest key on the keyboard?",
-    choices: ["Enter Key", "Spacebar", "Shift key", "control key"],
+    question: "2. What is the longest key on the keyboard?",
+    choices: ["Enter Key", "Spacebar", "Shift key", "Control key"],
     answer: 1
   },
   {
-    question: "what is the sum of 2 and 3?",
-    choices: ["4", "7", "5", "9"],
+    question: "3. Which of these application packages is mostly used by computer users?",
+    choices: ["CorelDraw", "Ms Access", "Ms Excel", "Ms Word"],
+    answer: 3
+  },
+  {
+    question: "4. The function of an assembler is to _________",
+    choices: ["convert basic language to machine language", "convert high level language to machine language", "convert assembly language to machine language", "convert assembly language into high level language"],
     answer: 2
+  },
+  {
+    question: "5. A computer can't boot if it does not have ____________",
+    choices: ["compiler", "Loader", "OS", "Assembler"],
+    answer: 2
+  },
+  {
+    question: "6. Fire fox is an example of __________",
+    choices: ["System software", "Application package", "Application software", "Computer tools."],
+    answer: 2
+  },
+  {
+    question: "7. The Caps key on a keyboard is used to___________",
+    choices: ["move to previous page", "Delete files", "Switch between upper and lower case letters", "Space texts"],
+    answer: 2
+  },
+  {
+    question: "8. From where can the name of a user account be changed?",
+    choices: ["Setting", "Computer name", "Code panel", "Control panel"],
+    answer: 3
+  },
+  {
+    question: "9. For what does WAN stand?",
+    choices: ["World application network", "Wide area network", "Wide acreage network", "Work arrangement network"],
+    answer: 1
+  },
+  {
+    question: "10. The acronym IP address has its full meaning to be _________",
+    choices: ["Internet protocol", "Internet password", "International processing", "Internet processing"],
+    answer: 0
   }
+
 ];
 
 var index = 0;
@@ -370,7 +406,7 @@ function countDown() {
 function startTimer() {
   setTimeout("countDown()", 1000);
 }
-
+//adding sweet Alert functionality
 document.getElementById("submitExam").addEventListener("click", ()=>{
   Swal.fire({
     title: 'Are you sure you want to submit this Exam?',

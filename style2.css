@@ -6,7 +6,8 @@
     width: 100%;
     background-color: #0056b3;
     color: #fff;
-    display: flex;
+    /*display: flex;*/
+    display:none;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
